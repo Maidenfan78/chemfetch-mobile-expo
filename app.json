@@ -8,13 +8,18 @@
     "scheme": "chemfetchmobile",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.chemfetch.mobile",
       "buildNumber": "1",
       "infoPlist": {
-        "NSCameraUsageDescription": "This app requires camera access to scan barcodes and capture product photos"
+        "NSCameraUsageDescription": "This app requires camera access to scan barcodes and capture product photos",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -23,7 +28,10 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "permissions": ["android.permission.CAMERA"],
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
       "package": "com.chemfetch.mobile",
       "versionCode": 2
     },
