@@ -45,7 +45,7 @@ export default function WatchListScreen() {
       contents_size_weight,
       sds_url
     )
-  `,
+  `
         )
         .eq('user_id', session.user.id)
         .order('sds_issue_date', { ascending: false });
@@ -91,12 +91,17 @@ export default function WatchListScreen() {
           renderItem={({ item }) => (
             <View className="mb-4 rounded-xl border border-gray-200 bg-light-100 p-4">
               <Text className="text-lg font-bold text-dark-100">{item.product.name}</Text>
-              <Text className="text-dark-100">Size: {item.product.contents_size_weight || 'N/A'}</Text>
+              <Text className="text-dark-100">
+                Size: {item.product.contents_size_weight || 'N/A'}
+              </Text>
               <Text className="text-dark-100">
                 SDS Available: {item.product.sds_url ? 'Yes' : 'No'}
               </Text>
 
-              <Pressable onPress={() => openSds(item.product.sds_url)} className="mt-3 rounded-lg bg-primary px-4 py-2">
+              <Pressable
+                onPress={() => openSds(item.product.sds_url)}
+                className="mt-3 rounded-lg bg-primary px-4 py-2"
+              >
                 <Text className="text-center font-semibold text-white">View SDS</Text>
               </Pressable>
             </View>
@@ -106,4 +111,3 @@ export default function WatchListScreen() {
     </View>
   );
 }
-
