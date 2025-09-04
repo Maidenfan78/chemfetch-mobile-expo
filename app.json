@@ -2,7 +2,7 @@
   "expo": {
     "name": "ChemFetch Mobile (Testing)",
     "slug": "chemfetch-mobile",
-    "version": "1.1.1-beta",
+    "version": "1.1.2-beta",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "chemfetchmobile",
@@ -26,7 +26,7 @@
       "edgeToEdgeEnabled": true,
       "permissions": ["android.permission.CAMERA"],
       "package": "com.chemfetch.mobile",
-      "versionCode": 3
+      "versionCode": 4
     },
     "web": {
       "bundler": "metro",
