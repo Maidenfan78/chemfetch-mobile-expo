@@ -262,58 +262,13 @@ export default function BarcodeScanner() {
         userId,
         backendUrl: BACKEND_API_URL,
       });
-      // Helper: robust JSON fetch with Render wake-up retry
-      const fetchJsonWithWake = async (attempt = 1): Promise<any> => {
-        const res = await fetch(`${BACKEND_API_URL}/scan`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ code: confirmed, userId }),
-        });
-        const status = res.status;
-        const ct = res.headers.get('content-type') || '';
-        let text = '';
-        try {
-          text = await res.text();
-        } catch {
-          text = '';
-        }
-        let json: any = null;
-        if (text) {
-          try {
-            json = JSON.parse(text);
-          } catch {
-            json = null;
-          }
-        }
 
-        // Successful JSON
-        if (res.ok && json !== null) {
-          return json;
-        }
-
-        // Render free dynos hibernate: respond 503 with empty body briefly
-        if (status === 503 && attempt === 1) {
-          mobileLogger.info('BARCODE_SCAN', 'Backend sleeping, attempting wake + retry', {
-            barcode: confirmed,
-          });
-          // ping health to wake
-          try {
-            await fetch(`${BACKEND_API_URL}/health`, { method: 'GET' });
-          } catch {}
-          // small backoff, then retry once
-          await new Promise(r => setTimeout(r, 1200));
-          return fetchJsonWithWake(2);
-        }
-
-        // If content-type indicates JSON but parsing failed, surface a clearer error
-        if (ct.includes('application/json') && text.trim() === '') {
-          throw new Error(`Empty JSON response (status ${status})`);
-        }
-
-        throw new Error(`HTTP ${status}: ${text ? text.substring(0, 200) : 'Empty response'}`);
-      };
-
-      fetchJsonWithWake()
+      fetch(`${BACKEND_API_URL}/scan`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: confirmed, userId }),
+      })
+        .then(res => res.json())
         .then(json => {
           const requestTime = Date.now() - requestStart;
           mobileLogger.info('BARCODE_SCAN', `Backend response received`, {

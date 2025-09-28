@@ -2,12 +2,11 @@
   "expo": {
     "name": "ChemFetch Mobile (Testing)",
     "slug": "chemfetch-mobile",
-    "version": "1.1.2-beta",
+    "version": "1.1.0-beta",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "chemfetchmobile",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "platforms": ["ios", "android", "web"],
     "ios": {
       "supportsTablet": true,
@@ -22,11 +21,10 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "proguardVersion": "6.2.2",
       "edgeToEdgeEnabled": true,
       "permissions": ["android.permission.CAMERA"],
       "package": "com.chemfetch.mobile",
-      "versionCode": 4
+      "versionCode": 2
     },
     "web": {
       "bundler": "metro",

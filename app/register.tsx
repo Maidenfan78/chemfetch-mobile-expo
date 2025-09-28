@@ -81,7 +81,9 @@ export default function WatchListScreen() {
 
   return (
     <View className="flex-1 bg-white p-4">
-      <Text className="mb-4 text-center text-xl font-bold text-dark-100">My Chemical Register</Text>
+      <Text className="mb-4 text-center text-xl font-bold text-dark-100">
+        📋 My Chemical Register
+      </Text>
       {items.length === 0 ? (
         <Text className="text-center text-dark-100">Your watch list is empty.</Text>
       ) : (
@@ -95,14 +97,14 @@ export default function WatchListScreen() {
                 Size: {item.product.contents_size_weight || 'N/A'}
               </Text>
               <Text className="text-dark-100">
-                SDS Available: {item.product.sds_url ? 'Yes' : 'No'}
+                SDS Available: {item.product.sds_url ? '✅' : '❌'}
               </Text>
 
               <Pressable
                 onPress={() => openSds(item.product.sds_url)}
                 className="mt-3 rounded-lg bg-primary px-4 py-2"
               >
-                <Text className="text-center font-semibold text-white">View SDS</Text>
+                <Text className="text-center font-semibold text-white">🔎 View SDS</Text>
               </Pressable>
             </View>
           )}
