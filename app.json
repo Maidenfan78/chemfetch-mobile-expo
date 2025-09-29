@@ -7,7 +7,11 @@
     "icon": "./assets/images/icon.png",
     "scheme": "chemfetchmobile",
     "userInterfaceStyle": "automatic",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.chemfetch.mobile",
@@ -22,7 +26,12 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "permissions": ["android.permission.CAMERA"],
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
       "package": "com.chemfetch.mobile",
       "versionCode": 2
     },
@@ -45,11 +54,22 @@
       "expo-camera",
       "expo-web-browser"
     ],
-    "experiments": { "typedRoutes": true },
+    "experiments": {
+      "typedRoutes": true
+    },
     "extra": {
       "router": {},
-      "eas": { "projectId": "add1a4f4-ed11-463e-a137-423538bdcfe5" }
+      "eas": {
+        "projectId": "add1a4f4-ed11-463e-a137-423538bdcfe5"
+      }
     },
-    "updates": { "enabled": false, "fallbackToCacheTimeout": 0 }
+    "updates": {
+      "enabled": false,
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/add1a4f4-ed11-463e-a137-423538bdcfe5"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }
