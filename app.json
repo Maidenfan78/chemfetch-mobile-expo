@@ -2,7 +2,7 @@
   "expo": {
     "name": "ChemFetch Mobile (Testing)",
     "slug": "chemfetch-mobile",
-    "version": "1.2.0-beta",
+    "version": "1.4.0-beta",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "chemfetchmobile",
@@ -11,7 +11,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.chemfetch.mobile",
-      "buildNumber": "1",
+      "buildNumber": "4",
       "infoPlist": {
         "NSCameraUsageDescription": "This app requires camera access to scan barcodes and capture product photos"
       }
@@ -29,7 +29,7 @@
         "android.permission.RECORD_AUDIO"
       ],
       "package": "com.chemfetch.mobile",
-      "versionCode": 3
+      "versionCode": 4
     },
     "web": {
       "bundler": "metro",
